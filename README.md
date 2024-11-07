@@ -2,9 +2,19 @@
 
 ## Описание
 
-Модульный монолит на базе Blazor? Легко! Эта сборка позволяет выделить модули (Components) в отдельные сборки (в отдельные проекты), чтобы предоставить возможность разным командам разрабатывать разные модули одного приложения.
+Модульный монолит на Blazor? Легко! `Calabonga.Blazor.AppDefinitions` позволяет выделить модули (Components) в отдельные сборки (в отдельные проекты), чтобы предоставить возможность разным командам разрабатывать разные модули одного приложения. Для установки в проект достаточно установить nuget-пакет [Calabonga.Blazor.AppDefinitions](https://www.nuget.org/packages/Calabonga.Blazor.AppDefinitions/).
 
 Помимо всего, эта сборка позволяет навести порядок в вашем `Program.cs`. Можно всё разложить "по полочкам". А еще можно реализовать систему плагинов. Чтобы воспользоваться сборкой надо просто установить nuget-пакет [Calabonga.Blazor.AppDefinitions](https://www.nuget.org/packages/Calabonga.Blazor.AppDefinitions/).
+
+В сборку [Calabonga.Blazor.AppDefinitions](https://github.com/Calabonga/Calabonga.Blazor.AppDefinitions) входят контракты прочие необходимые для работы системы модулей артифакты.
+
+Сборка [Calabonga.Blazor.AppDefinitions.Template](https://github.com/Calabonga/Calabonga.Blazor.AppDefinitions.Template) является шаблоном для Visual Studio (Rider), которые позволит "на лету" создать примеры модульного приложения на Blazor.
+
+## Возможный вариант архитектуры
+
+Используя `Calabonga.Blazor.AppDefinitions` можно с легкостью реализовать предложенную ниже архитектуру. Модули на frontend работают с микросервисами на backend. Причем, можно позволить модулям UI "ходить" в разные сервисы на стороне backend.
+
+![Proposed Frontend Architecture](whatnot/schema.png)
 
 ## Nuget-пакет
 
