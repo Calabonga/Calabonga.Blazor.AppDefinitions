@@ -7,14 +7,14 @@ namespace Calabonga.Blazor.AppDefinitions;
 /// <summary>
 /// Command Finder helper
 /// </summary>
-public static class ModulesFinder
+internal static class ModulesFinder
 {
     /// <summary>
     /// Finds all items in all assemblies
     /// </summary>
     /// <param name="modulesFolderPath"></param>
     /// <exception cref="FileNotFoundException"></exception>
-    public static Operation<Type[], ModuleFileNotFoundException> Find(string modulesFolderPath)
+    internal static Operation<Type[], ModuleFileNotFoundException> FindModules(string modulesFolderPath)
     {
         try
         {
@@ -41,13 +41,13 @@ public static class ModulesFinder
                 var exportedTypes = assembly.GetExportedTypes();
                 var appDefinitions = exportedTypes.Where(Predicate).ToList();
 
-                var modulesTypes = appDefinitions.Select(Activator.CreateInstance)
+                var definitionTypes = appDefinitions.Select(Activator.CreateInstance)
                     .Cast<IAppDefinition>()
                     .Where(x => x.Enabled && x.Exported)
                     .Select(x => x.GetType())
                     .ToList();
 
-                if (!modulesTypes.Any())
+                if (!definitionTypes.Any())
                 {
                     var error = new ModuleFileNotFoundException($"There are no any AppDefinition found in {fileInfo.FullName}");
                     return Operation.Error(error);
@@ -55,14 +55,18 @@ public static class ModulesFinder
 
                 var modules = exportedTypes.Where(BlazorModulePredicate).ToList();
 
-                if (!modules.Any())
+                var blazorModules = modules.Select(Activator.CreateInstance).Cast<IBlazorModule>().ToList();
+                var modulesTypes = blazorModules.Select(x => x.GetType())
+                .ToList();
+
+                if (!modulesTypes.Any())
                 {
                     var error = new ModuleFileNotFoundException($"AppDefinition found in {fileInfo.FullName}, but there are no IBlazorModule implementation were found. May be you forget enable an Export property set up.");
 
                     return Operation.Error(error);
                 }
 
-                BlazorModules.Instance.AddAssembly(assembly);
+                ModuleDefinitions.Instance.AddAssembly(new BlazorAppDefinition(assembly, blazorModules));
 
                 types.AddRange(exportedTypes);
             }

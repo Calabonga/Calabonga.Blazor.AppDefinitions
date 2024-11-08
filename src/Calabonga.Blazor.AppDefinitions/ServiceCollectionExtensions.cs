@@ -10,7 +10,7 @@ namespace Calabonga.Blazor.AppDefinitions;
 public static class ServiceCollectionExtensions
 {
     /// <summary>
-    /// Find modules and register application dependencies. 
+    /// FindModules modules and register application dependencies. 
     /// </summary>
     /// <param name="source"></param>
     /// <param name="modulesPath"></param>
@@ -29,7 +29,7 @@ public static class ServiceCollectionExtensions
             types.AddRange(additionalTypes);
         }
 
-        var moduleTypes = ModulesFinder.Find(modulesPath);
+        var moduleTypes = ModulesFinder.FindModules(modulesPath);
         if (moduleTypes.Ok)
         {
             types.AddRange(moduleTypes.Result);
