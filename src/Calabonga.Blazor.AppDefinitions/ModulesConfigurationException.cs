@@ -1,7 +1,7 @@
 ﻿namespace Calabonga.Blazor.AppDefinitions;
 
 /// <summary>
-/// Modules configuration exception
+/// Assemblies configuration exception
 /// </summary>
 public class ModulesConfigurationException : InvalidOperationException
 {
