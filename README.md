@@ -19,8 +19,14 @@
 ## Nuget-пакет
 
 * [Calabonga.Blazor.AppDefinitions](https://www.nuget.org/packages/Calabonga.Blazor.AppDefinitions/) - nuget-пакет (этот репозиторий), который собой представляет набор контактов для использования в модулях и в основном приложении.
-
 * [Calabonga.Blazor.AppDefinitions.Template](https://www.nuget.org/packages/Calabonga.Blazor.AppDefinitions.Template/) - nuget-пакет, установка которого добавит в список шаблонов новый шаблон `Calabonga.Blazor.Shell`. Этот шаблон создает проект Blazor Server приложения как основа для модульного монолита (Shell). Шаблон работает и для Visual Studio, и для JetBrains Rider, и для dotnet CLI.
+
+## Видео демонстрация
+
+На видео показано превращение обыкновенного проекта WeatherForecast на Blazor, созданное из стандартного шаблона в Visual Studio, в приложение Shell с Plugins. То есть из простого шаблона создается приложение на Blazor, которое "умеет" загружать модули.
+
+[![BlazorModularity](https://github.com/user-attachments/assets/4b324a96-8e07-4e31-ad4b-c500afa5cd79)](https://boosty.to/calabonga/posts/b441e8df-84e1-4706-b79d-42dd5d851fd3)
+
 
 ## Description
  
