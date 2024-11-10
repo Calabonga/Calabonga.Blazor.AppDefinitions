@@ -3,37 +3,37 @@
 namespace Calabonga.Blazor.AppDefinitions;
 
 /// <summary>
-/// Module marker for Blazor application 
+/// Base Blazor modules class for metadata. It should be used for modules creation.
 /// </summary>
-public interface IBlazorModule
+public abstract class BlazorModule : IBlazorModule
 {
     /// <summary>
     /// Visibility for UI. For example, NavMenu
     /// </summary>
-    bool IsHidden { get; }
+    public virtual bool IsHidden => false;
 
     /// <summary>
     /// Order index sorting operations
     /// </summary>
-    int OrderIndex { get; }
+    public virtual int OrderIndex => 0;
 
     /// <summary>
     /// Module title
     /// </summary>
-    string Title { get; }
+    public abstract string Title { get; }
 
     /// <summary>
     /// Brief module description
     /// </summary>
-    string Description { get; }
+    public abstract string Description { get; }
 
     /// <summary>
     /// Navigation Route 
     /// </summary>
-    string Route { get; }
+    public abstract string Route { get; }
 
     /// <summary>
     /// NavLink type match
     /// </summary>
-    NavLinkMatch Match { get; }
+    public virtual NavLinkMatch Match => NavLinkMatch.Prefix;
 }
