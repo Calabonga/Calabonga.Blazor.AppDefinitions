@@ -7,13 +7,25 @@ namespace Calabonga.Blazor.AppDefinitions;
 /// </summary>
 public sealed class BlazorAppModule : IBlazorModule
 {
-    public BlazorAppModule(string title, string description, string route, NavLinkMatch match)
+    public BlazorAppModule(string title, string description, string route, NavLinkMatch match, bool isHidden, int orderIndex)
     {
         Title = title;
         Description = description;
         Route = route;
         Match = match;
+        IsHidden = isHidden;
+        OrderIndex = orderIndex;
     }
+
+    /// <summary>
+    /// Visibility for UI. For example, NavMenu
+    /// </summary>
+    public bool IsHidden { get; }
+
+    /// <summary>
+    /// Order index sorting operations
+    /// </summary>
+    public int OrderIndex { get; }
 
     /// <summary>
     /// Module title
