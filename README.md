@@ -34,9 +34,55 @@ Application Definitions for Blazor application. The small but very helpful packa
 
 ## История версий
 
+### Версия 1.2.0 2024-11-10
+
+Обновление 1.2.0 добавило возможность сортировки модулей, а также возможность скрывать их из меню при необходимости.
+
+* В интерфейс `IBlazorModule` добавлены новые свойства `OrderIndex` и `Visibility` (`OrderIndex` and `Visibility` properties added into `IBlazorModule` metadata interface.).
+  ``` diff
+      /// <summary>
+      /// Module marker for Blazor application 
+      /// </summary>
+      public interface IBlazorModule
+      {
+  +       /// <summary>
+  +       /// Visibility for UI. For example, NavMenu
+  +       /// </summary>
+  +       bool IsHidden { get; }
+
+  +       /// <summary>
+  +       /// Order index sorting operations
+  +       /// </summary>
+  +       int OrderIndex { get; }
+
+          /// <summary>
+          /// Module title
+          /// </summary>
+          string Title { get; }
+
+          /// <summary>
+          /// Brief module description
+          /// </summary>
+          string Description { get; }
+
+          /// <summary>
+          /// Navigation Route 
+          /// </summary>
+          string Route { get; }
+
+          /// <summary>
+          /// NavLink type match
+          /// </summary>
+          NavLinkMatch Match { get; }
+      }
+  ```
+
+
+* Добавлен новый базовый абстрактный класс `BlazorModule`, в котором заданyые значения по умолчанию для свойств `OrderIndex` и `Visibility` (Base abstract class BlazorModule created with default values for some properties.).
+
 ### Версия 1.1.0 2024-11-08
 
-* Добавлен сбор метаданных от модулей для возможностьи формировать `NavLink` динамически.
+* Добавлен сбор метаданных от модулей для возможности формировать `NavLink` динамически.
 * Добавлены методы получения списка `Assembly`
 * Добавления расширения для формирования ссылок для навигации.
 
