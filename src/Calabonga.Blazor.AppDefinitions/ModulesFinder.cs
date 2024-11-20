@@ -3,7 +3,6 @@ using System.Reflection;
 
 namespace Calabonga.Blazor.AppDefinitions;
 
-
 /// <summary>
 /// Command Finder helper
 /// </summary>
@@ -56,8 +55,7 @@ internal static class ModulesFinder
                 var modules = exportedTypes.Where(BlazorModulePredicate).ToList();
 
                 var blazorModules = modules.Select(Activator.CreateInstance).Cast<IBlazorModule>().ToList();
-                var modulesTypes = blazorModules.Select(x => x.GetType())
-                .ToList();
+                var modulesTypes = blazorModules.Select(x => x.GetType()).ToList();
 
                 if (!modulesTypes.Any())
                 {
@@ -86,5 +84,10 @@ internal static class ModulesFinder
     /// <returns></returns>
     private static bool Predicate(Type type) => type is { IsAbstract: false, IsInterface: false } && typeof(AppDefinition).IsAssignableFrom(type);
 
+    /// <summary>
+    /// Finds Modules in AppDefinitions
+    /// </summary>
+    /// <param name="type"></param>
+    /// <returns></returns>
     private static bool BlazorModulePredicate(Type type) => type is { IsAbstract: false, IsInterface: false } && typeof(IBlazorModule).IsAssignableFrom(type);
 }
