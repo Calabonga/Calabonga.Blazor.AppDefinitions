@@ -1,4 +1,4 @@
-name: Nuget Deploy (NET9)
+name: Nuget Deploy (NET10)
 
 on:
   push:
