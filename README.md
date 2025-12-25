@@ -34,6 +34,15 @@ Application Definitions for Blazor application. The small but very helpful packa
 
 ## История версий
 
+### Версия 3.0.1 2025-12-25
+
+`AddDepefinitions` renamed to `AddBlazorDefinitions`
+
+### Версия 3.0.0 2025-11-25
+
+Обновление до NET 10.0
+
+
 ### Версия 2.0.0 2024-11-20
 
 Обновление до NET 9.0

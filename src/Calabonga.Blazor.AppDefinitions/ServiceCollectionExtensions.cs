@@ -51,7 +51,7 @@ public static class ServiceCollectionExtensions
     /// When executing on development environment there are more diagnostic information available on console.
     /// </remarks>
     /// <param name="source"></param>
-    public static void UseDefinitions(this WebApplication source)
+    public static void UseBlazorDefinitions(this WebApplication source)
     {
         var logger = source.Services.GetRequiredService<ILogger<AppDefinition>>();
         var definitionCollection = source.Services.GetService<AppDefinitionCollection>();
