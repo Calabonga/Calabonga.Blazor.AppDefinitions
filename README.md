@@ -1,4 +1,6 @@
-﻿# Calabonga.Blazor.AppDefinitions
+# Calabonga.Blazor.AppDefinitions
+
+The Best Way To Organize Your Program.cs In ASP.NET
 
 ## Описание
 
